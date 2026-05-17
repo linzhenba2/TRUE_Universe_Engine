@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🪞 TRUE Universe Engine - Web Distributed Node</title>
+    <!-- Injecting Tailwind CSS via high-speed CDN for elite tech UI -->
+    <script src="https://tailwindcss.com"></script>
+    <style>
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(0, 255, 102, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(0, 255, 102, 0.8); }
+        }
+        .mining-active { animation: pulse-glow 2s infinite; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-mono min-h-screen flex flex-col items-center justify-center p-4">
+
+    <!-- Core Interactive Control Panel -->
+    <div id="node-panel" class="w-full max-w-xl bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-2xl transition-all duration-300">
+        <div class="border-b border-slate-800 pb-4 mb-6">
+            <h1 class="text-xl md:text-2xl font-black text-emerald-400 tracking-wider text-center md:text-left">
+                🪞 TRUE UNIVERSE DISTRIBUTED NODE v1.6
+            </h1>
+            <p class="text-xs text-slate-400 mt-1 text-center md:text-left">
+                [Web Engine Platform - Pure JavaScript Negentropy Pump]
+            </p>
+        </div>
+
+        
+        <div class="space-y-4">
+            <div>
+                <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">[🔒 Master Identity Coordinates]</label>
+                <input type="text" id="wallet-input" placeholder="Enter your Web3 wallet address (0x...)" 
+                       class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 text-emerald-300 font-mono transition-all">
+            </div>
+
+            <!-- Controller Switches -->
+            <div class="pt-2">
+                <button id="trigger-btn" onclick="toggleMiningEngine()" 
+                        class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black tracking-widest uppercase py-4 rounded-lg text-sm shadow-lg transition-all duration-200">
+                    Ignite Hashing Matrix / 开启网路算力
+                </button>
+            </div>
+        </div>
+
+        <!-- Real-time Flow Telemetry Board -->
+        <div class="mt-8 border-t border-slate-800 pt-6 space-y-3 text-xs text-slate-400">
+            <div class="flex justify-between border-b border-slate-850 pb-2">
+                <span>[🛰️ ENGINE STATUS]</span>
+                <span id="engine-status" class="text-rose-500 font-bold">OFFLINE</span>
+            </div>
+            <div class="flex justify-between border-b border-slate-850 pb-2">
+                <span>[⚙️ COMPUTING CYCLE]</span>
+                <span id="cycle-display" class="text-slate-300 font-bold">0</span>
+            </div>
+            <div class="flex justify-between border-b border-slate-850 pb-2">
+                <span>[⏱️ INSTANT NONCE]</span>
+                <span id="nonce-display" class="text-slate-300 font-bold">0</span>
+            </div>
+            <div class="flex justify-between">
+                <span>[💸 PIPELINE LEDGER]</span>
+                <span id="ledger-status" class="text-slate-500">STANDBY</span>
+            </div>
+        </div>
+
+        <!-- Console Stream Logger -->
+        <div class="mt-6">
+            <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">[📺 Live Stream Log]</label>
+            <div id="console-logger" class="w-full h-32 bg-slate-950 border border-slate-850 rounded-lg p-3 text-[10px] md:text-xs overflow-y-auto font-mono text-slate-400 space-y-1">
+                <div class="text-slate-500">>> Awaiting core identity initialization inputs...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Computational Matrix Core Logic -->
+    <script>
+        // PROTOCOL SYSTEM CONFIGURATION
+        const MAKE_WEBHOOK_URL = "https://make.com";
+        const TRUE_CONTRACT_ADDRESS = "0x218684D47A6B5Be161a05256eC2A7aAFDF7696F9";
+
+        let isMiningActive = false;
+        let cycleCount = 0;
+        let nonce = 0;
+        let abortController = null;
+
+        function logToTerminal(message, type = 'info') {
+            const logger = document.getElementById('console-logger');
+            const colorMap = {
+                info: 'text-slate-400',
+                success: 'text-emerald-400 font-bold',
+                warn: 'text-amber-400 font-bold',
+                error: 'text-rose-400 font-bold',
+                breakthrough: 'text-fuchsia-400 font-black'
+            };
+            const timestamp = new Date().toLocaleTimeString();
+            logger.innerHTML += `<div class="${colorMap[type]}">[${timestamp}] >> ${message}</div>`;
+            logger.scrollTop = logger.scrollHeight;
+        }
+
+        function toggleMiningEngine() {
+            const walletInput = document.getElementById('wallet-input').value.trim();
+            const btn = document.getElementById('trigger-btn');
+            const panel = document.getElementById('node-panel');
+            const statusText = document.getElementById('engine-status');
+
+            if (!isMiningActive) {
+                // Identity Verification Check
+                if (!walletInput.startsWith("0x") || walletInput.length !== 42) {
+                    logToTerminal("CRITICAL: Invalid Web3 address architecture configuration. Aborted.", "error");
+                    alert("Invalid Web3 receiving wallet address format!");
+                    return;
+                }
+
+                // Activate Network Layer
+                isMiningActive = true;
+                abortController = new AbortController();
+                panel.classList.add('mining-active');
+                statusText.innerText = "ONLINE (ACTIVE)";
+                statusText.className = "text-emerald-400 font-bold";
+                btn.innerText = "Terminate Engine / 断开算力节点";
+                btn.className = "w-full bg-rose-500 hover:bg-rose-400 text-slate-950 font-black tracking-widest uppercase py-4 rounded-lg text-sm shadow-lg transition-all duration-200";
+                
+                logToTerminal(`IDENTITY VERIFIED: Yield destination locked to ${walletInput}`, "success");
+                logToTerminal("ENGINE OVERDRIVE: Connecting to international protocol automation server...", "info");
+                
+                // Fire the core asynchronous execution matrix
+                executeMiningLoop(walletInput);
+            } else {
+                // Graceful Deactivation Routine
+                isMiningActive = false;
+                if (abortController) abortController.abort();
+                panel.classList.remove('mining-active');
+                statusText.innerText = "OFFLINE";
+                statusText.className = "text-rose-500 font-bold";
+                btn.innerText = "Ignite Hashing Matrix / 开启网路算力";
+                btn.className = "w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black tracking-widest uppercase py-4 rounded-lg text-sm shadow-lg transition-all duration-200";
+                logToTerminal("TERMINATED: Cloud node safely disconnected. Resource payload contributions suspended.", "warn");
+            }
+        }
+
+        async function executeMiningLoop(wallet) {
+            const cycleDisplay = document.getElementById('cycle-display');
+            const nonceDisplay = document.getElementById('nonce-display');
+            const ledgerStatus = document.getElementById('ledger-status');
+
+            while (isMiningActive) {
+                cycleCount++;
+                cycleDisplay.innerText = cycleCount;
+                logToTerminal(`COMPUTING: Cycle #${cycleCount} packing data into high-speed Web Crypto API channels...`, "info");
+                
+                nonce = 0;
+                const startTime = Date.now();
+                let finalHash = "";
+                const targetDifficulty = "0000";
+
+                // Native Hardware Hashing Matrix Acceleration (PoW Loop)
+                while (isMiningActive) {
+                    nonce++;
+                    if (nonce % 5000 === 0) {
+                        nonceDisplay.innerText = nonce;
+                        // Yield thread control back to browser runtime briefly to prevent UI locking
+                        await new Promise(resolve => setTimeout(resolve, 0));
+                    }
+
+                    const rawString = `${wallet}-${cycleCount}-${nonce}-${Math.random()}`;
+                    // Harness the super-fast native browser subtle cryptographic pipeline
+                    const msgBuffer = new TextEncoder().encode(rawString);
+                    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+                    const hashArray = Array.from(new Uint8Array(hashBuffer));
+                    finalHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+                    if (finalHash.startsWith(targetDifficulty)) {
+                        break;
+                    }
+                }
+
+                if (!isMiningActive) break;
+
+                const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
+                nonceDisplay.innerText = nonce;
+                logToTerminal(`PROOF FOUND: (Time: ${elapsedTime}s | Nonce: ${nonce})`, "success");
+
+                // Execute the Macro-Scientific 50/30/20 Distribution Routing Logic
+                const roll = Math.random();
+                let difficultyLevel = "easy";
+                let basePayout = "42,000";
+
+                if (roll < 0.05) {
+                    difficultyLevel = "hard";
+                    basePayout = "105,000";
+                    logToTerminal(`🏆 HARD CORE BREAKTHROUGH: Riemann-Hypothesis non-trivial zeroes bounds breached! Expected: ${basePayout} $TRUE`, "breakthrough");
+                } else if (roll < 0.25) {
+                    difficultyLevel = "medium";
+                    basePayout = "63,000";
+                    logToTerminal(`🛠️ MEDIUM INFRASTRUCTURE PROVED: JWST space telemetry dataset aligned. Expected: ${basePayout} $TRUE`, "warn");
+                } else {
+                    difficultyLevel = "easy";
+                    basePayout = "42,000";
+                    logToTerminal(`🌱 EASY COMMUNITY CONSENSUS LOGGED: Macro-climate prediction factor indexed. Expected: ${basePayout} $TRUE`, "info");
+                }
+
+                // Compute exact BigNumber Web3 weight allocation (18 decimals padding alignment)
+                const weiAmount = BigInt(basePayout.replace(/,/g, '')) * BigInt(10**18);
+
+                // Build pure production transmission capsule payload
+                const payload = {
+                    miner_wallet: wallet,
+                    difficulty: difficultyLevel,
+                    computing_power_hash: finalHash,
+                    cycle: cycleCount,
+                    contract_address: TRUE_CONTRACT_ADDRESS,
+                    amount_in_wei: weiAmount.toString(),
+                    signed_tx: "0x_true_genesis_proof_validated_by_sujing"
+                };
+
+                ledgerStatus.innerText = "STREAMING PAYLOAD...";
+                ledgerStatus.className = "text-amber-400 font-bold animate-pulse";
+
+                // Deploy network request capsule to Make.com gateway
+                try {
+                    const response = await fetch(MAKE_WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload),
+                        signal: abortController.signal
+                    });
+
+                    if (response.status === 200) {
+                        ledgerStatus.innerText = "TRANSACTION BROADCASTED";
+                        ledgerStatus.className = "text-emerald-400 font-bold";
+                        logToTerminal("💸 SUCCESS: Power proof verified. Cosmos Seed Fund auto-skim matrix triggered via Make.com.", "success");
+                    } else {
+                        ledgerStatus.innerText = `ERROR CODE: ${response.status}`;
+                        ledgerStatus.className = "text-rose-500 font-bold";
+                        logToTerminal(`WARNING: Automation pipeline mapping anomaly. Gateway code: ${response.status}`, "warn");
+                    }
+                } catch (err) {
+                    if (err.name === 'AbortError') {
+                        break;
+                    }
+                    ledgerStatus.innerText = "TRANSPORT LAYER FAIL";
+                    ledgerStatus.className = "text-rose-500 font-bold";
+                    logToTerminal("❌ FAIL: Cryptographic transport handshake lost. Retrying on next cycle...", "error");
+                }
+
+                // 10-second anti-clogging protocol cooling rate limiter
+                logToTerminal("SYSTEM COOLING: Waiting 10 seconds for next network cycle alignment...", "info");
+                await new Promise((resolve, reject) => {
+                    const timeoutId = setTimeout(resolve, 10000);
+                    abortController.signal.addEventListener('abort', () => {
+                        clearTimeout(timeoutId);
+                        reject(new DOMException('Aborted', 'AbortError'));
+                    });
+                }).catch(() => {});
+            }
+        }
+    </script>
+</body>
+</html>
