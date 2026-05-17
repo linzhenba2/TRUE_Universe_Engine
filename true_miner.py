@@ -4,11 +4,11 @@ import hashlib
 import requests
 
 # ==================== PROTOCOL SYSTEM CONFIGURATION ====================
-# [ALIGNMENT ACTION 1]: Replace with your active EU region TRUE_Gate URL from Make.com
+# [ALIGNED]: Aligned with Grand Observer's active EU gateway on Make.com
 MAKE_WEBHOOK_URL = "https://make.com"
 
-# [ALIGNMENT ACTION 2]: Define the $TRUE ERC-20 smart contract address deployed on Base mainnet
-TRUE_CONTRACT_ADDRESS = "0xYourTrueTokenContractAddress000000000000"
+# [ALIGNED]: Deadlocked with the real Base Sepolia contract address from your GitHub Whitepaper
+TRUE_CONTRACT_ADDRESS = "0x218684D47A6B5Be161a05256eC2A7aAFDF7696F9"
 # =======================================================================
 
 print("=========================================================")
@@ -48,7 +48,7 @@ try:
         elapsed_time = time.time() - start_time
         print(f" [OK] (Time: {elapsed_time:.2f}s | Nonce: {nonce})")
         
-        # 3. Probability verification & [ALIGNMENT ACTION 3]: Map dynamic difficulty tiers to Make.com filters
+        # 3. Probability verification & Mapping dynamic difficulty tiers to Make.com filters
         roll = random.random()
         if roll < 0.05:     # 5% probability to decode Hard Core Protocol task (50% Pool)
             difficulty_level = "hard"
@@ -63,7 +63,6 @@ try:
             print("📢 [🌱 EASY COMMUNITY] Base community layer consensus logged.")
         
         # 4. Assemble cryptographic validation packet aligned with Make.com Router variables
-        # [ALIGNMENT ACTION 4]: Key names changed to "miner_wallet" and "difficulty" to match Make configuration
         payload = {
             "miner_wallet": user_wallet,
             "difficulty": difficulty_level,
