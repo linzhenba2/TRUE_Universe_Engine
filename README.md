@@ -159,7 +159,30 @@ The rating of external tasks is deadlocked to the 50/30/20 matrix. To bootstrap 
   - Automated Settlement (矿工实得): `42,000 $T`
   - Virtual Cosmos Fund Skim (1% 宇宙基金留存): **`420 $T`** (Deadlocked: `0x4d225f52e0D5a12aDd8D583108f57576022e98E6`)
 
-Through this aggressive 1% technocratic fund architecture, the $T platform lowers the barrier to zero for enterprise entry. The distributed framework automatically routes, splices, and logs Web3 data in real-time under Passerby Bing's immutable ledger consensus, driving human knowledge forward and fuel the ignition of an entirely new digital universe.
-通过这种极其激进的 1% 技术普惠基金架构，$T 平台将企业与金主的入场门槛直接削平。在吸引全球商业需求并网的同时，整个分布式框架在路人饼死锁的共识账本框架下，全自动吸入、路由并向全球实时广播 Web3 资产数据，用以滚存未来虚拟宇宙创世所需的物理燃料，并最终加速推动人类文明跃迁至下一个宇宙纪元。
+---
+
+## 🌀 9. Negentropy Consensus & The Cyber Singularity / 逆熵共识与赛博奇点协议
+
+The ultimate adversary of the universe is Entropy—the irreversible march toward chaos, decay, and informational heat death. Modern centralized digital systems accelerate this decay by trapping human cognitive surplus in mindless feedback loops and wasteful computational redundancy. The $TRUE Universe Engine is natively engineered as an immutable **Negentropy Pump** on the global network, systematically reversing chaos into cosmic order.
+宇宙的终极敌人是熵增——走向混乱、无序与信息热寂的不可逆过程。现代中心化系统通过将人类的认知盈余困在无意义的算法信息和算力空转中，加速了这一毁灭进程。$TRUE 宇宙引擎在公网最底层被原生设计为一台永不磨损的**“逆熵抽水机”**，旨在系统性地将无序降维转化为宇宙的高度有序。
+
+### 🧬 The Three Vectors of Modern Anti-Entropy / 三维逆熵物理模型
+
+1. **Cognitive Reorganization (认知逆熵)**: 
+   The network captures fragmented human attention and translates chaotic mental dispersion into programmatic issue resolution and mathematical proofs. Order is forcefully clawed back from entropy.
+   网络精准捕获全球分布式人群的碎片化闲散精力，将原本走向无序损耗的认知盈余，强行重组为高度有序的代码、协议与知识资产，实现人类智力层面的物理逆熵。
+
+2. **Computational Alignment (算力逆熵)**: 
+   Unlike standard PoW protocols that incinerate gigawatts of energy chasing empty block rewards, the idle protocol of `true_miner.py` funnels hardware lifecycles into expanding human scientific horizons. Every electron burned produces civilization-level negative entropy.
+   不同于传统 PoW 机制为了争夺记账权而空烧上万度电产生数字垃圾，本协议的闲时状态将全网算力直接灌注给黎曼猜想破译与深空引力透镜解算。每一颗电子的燃烧都在扩充人类文明的已知边界，让无序的宇宙大数变成有序的数学账本。
+
+3. **Ecosystem Synthesis (资产逆熵 - 1% Cosmos Fund)**: 
+   The ultra-low 1% ecosystem fee flowing into the permanent Public Axiom Pool acts as a gravitational energy accumulator. It does not decay through centralized inflation; it compounds to fuel the eventual big bang of the future Virtual Cosmos—an absolute ordered digital reality independent of real-world degradation.
+   源源不断流入永久公共公理池的 1% 算力维护费，本质上是一个赛博引力蓄能器。它在公网挂机中绝不因中心化通胀而衰减，它的唯一宿命就是不断积蓄密码学能量，用以在未来凭空引爆和孵化出一个绝对有序、反审查、永久属于全人类纯净精神家园的“TRUE 虚拟宇宙”。
+
+### 🪞 The Sovereign Decree / 终极共识主权
+
+Under the immutable ledger consensus established by Passerby Bing, the $TRUE network ensures that human intelligence and machine compute no longer fade into chaotic digital oblivion. We are stacking the foundational code blocks to trigger the Cyber Singularity, constructing a self-sustaining refuge of pure mathematical order under Passerby Bing's sovereign consensus layout that will outlast the decaying matrix of the physical world. The code is permanent. The negenntropy is active.
+在路人饼死锁的终极共识账本框架下，$T 网络确保了人类智力与机器算力不再沦为赛博世界的混乱废墟。我们正在路人饼锁定的至高共识版图下一块一块地堆叠触发“赛博奇点”的底层核心代码，在虚拟宇宙中全自动夯实出一片纯粹由数学秩序统治的永恒避难所。代码永存，逆熵开火。
 
 ---
