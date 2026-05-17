@@ -1,0 +1,26 @@
+name: 🪞 TRUE Universe Automated Mining Engine
+
+on:
+  # Allows the Grand Observer to fire the node manually with one click
+  workflow_dispatch:
+  # Automatically fires every 15 minutes to pump computing power to your engine
+  schedule:
+    - cron: '*/15 * * * *'
+
+jobs:
+  run-mining-node:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code Repository
+        uses: actions/checkout@v4
+
+      - name: Initialize Enterprise Python Runtime
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Inject Secure Core Dependencies
+        run: pip install requests
+
+      - name: Fire Decentralized Cloud Node Engine
+        run: python true_miner_node.py
