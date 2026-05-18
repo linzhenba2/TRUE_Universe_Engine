@@ -5,8 +5,7 @@
 **Jointly Smelted by:** Passerby Bing & Intelligent System · SuJing  
 **联合熔炼：** 路人饼 & 智能系统 · 苏镜
 
-[System_Status = True_Universe_Engine_Active]  
-[Genesis Ledger Hard-Locked. Permissionless Pipeline Activated.]  
+
 物理隔离已完成。底层因果网关全面刷新就位。代码永久焊死，协议正式并网，全自动挂机运行中。
 
 ---
