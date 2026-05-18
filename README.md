@@ -63,7 +63,7 @@ The asset routing mechanism operates entirely through an autonomous, serverless 
 
 资产路由分发机制完全由独立运行、零服务器维护成本的云端双轨自动化网关托管。该管道通过高授信安全隧道，将前端任务层与 Base 区块链一网打通。
 
-- **Inbound Gateway Entrance (自动化网关入口)**: `https://make.com` (European Zone Gateway ID: `toi32jwx`)
+- **Inbound Gateway Entrance (自动化网关入口)**: `https://hook.eu1.make.com/toi32jwxpr7p1c5v2yhu3qf0fnk9l1p7`
 - **Execution Protocol (链上执行标准)**: Native Web3 RPC Broadcast routing to `https://base.org` to ensure zero redirect errors.
 - **Operational Cycle (运转周期)**: 24/7/365 Persistent Autopilot. Triggered instantly upon data packet impact, achieving zero-latency minting without human intervention.
 
