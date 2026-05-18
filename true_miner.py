@@ -10,7 +10,7 @@ import random
 import hashlib
 import requests
 
-GATEWAY_URL = "https://make.com"  # 欧区新网关
+GATEWAY_URL = "https://hook.eu1.make.com/toi32jwxpr7p1c5v2yhu3qf0fnk9l1p7"  # 欧区新网关
 BASE_SEPOLIA_CONTRACT = "0x218684D47A6B5Be161a05256eC2A7aAFDF7696F9"
 
 print("==================================================================")
@@ -68,7 +68,7 @@ try:
             print(f"[常规协议] 捕获外部平台挂单任务: {task_id} [难度: {difficulty}]")
 
         # 压榨算力生成逆熵凭证
-        print("[计算中] 注入逆熵算力，全自动打包底层因果密码学切片...")
+        print("[计算中] 注入算力，全自动打包底层因果密码学切片...")
         time.sleep(3)
         nonce = random.randint(1000000, 9999999)
         proof_hash = hashlib.sha256(f"{miner_wallet}-{task_id}-{nonce}".encode()).hexdigest()
