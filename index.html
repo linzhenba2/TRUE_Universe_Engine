@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$TRUE Future Engine - 全球共享算力矩阵</title>
+    <title>$TRUE Future Engine - 核心科技理念</title>
     <style>
         :root {
-            --bg-base: #0b0f19;
-            --bg-card: #131a2e;
+            --bg-base: #070a13;
             --text-primary: #f4f4f5;
-            --text-muted: #94a3b8;
+            --text-muted: #64748b;
             --tech-cyan: #38bdf8;
             --eco-green: #34d399;
-            --alert-pink: #fb7185;
             --border-color: #1e293b;
         }
 
@@ -20,46 +18,35 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
             background-color: var(--bg-base);
             color: var(--text-primary);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        #matrix-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at 50% 30%, #1e294b 0%, #0b0f19 100%);
-            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
         }
 
         .container {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 60px 20px;
+            max-width: 700px;
+            width: 100%;
         }
 
+        /* 极简头部 */
         header {
             text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 50px;
         }
 
         header h1 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 300;
-            color: var(--text-primary);
             letter-spacing: 6px;
-            margin-bottom: 16px;
+            margin-bottom: 8px;
         }
 
         header h1 span {
@@ -67,414 +54,98 @@
             font-weight: 600;
         }
 
-        /* ⚡ 【视觉聚焦：物理放大第二行分布式算力共享宣告】 */
         header p {
             color: var(--text-muted);
-            font-size: 1.25rem; 
-            font-weight: 500;   
-            letter-spacing: 4px; 
-            text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(148, 163, 184, 0.1);
-        }
-
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 24px;
-            position: relative;
-        }
-
-        .card h3 {
             font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* 三大基本理念框架 */
+        .concept-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .concept-item {
+            border-left: 2px solid var(--border-color);
+            padding-left: 25px;
+            transition: border-color 0.3s ease;
+        }
+
+        .concept-item:hover {
+            border-color: var(--eco-green);
+        }
+
+        .concept-title {
+            font-size: 1.1rem;
             font-weight: 500;
-            color: var(--text-muted);
-            margin-bottom: 12px;
+            color: var(--text-primary);
+            margin-bottom: 10px;
             letter-spacing: 1px;
         }
 
-        .card .value {
-            font-size: 1.6rem;
-            font-weight: 600;
-        }
-
-        .card .value.tech { color: var(--tech-cyan); }
-        .card .value.eco { color: var(--eco-green); }
-
-        .card .status-tag {
-            position: absolute;
-            top: 22px;
-            right: 22px;
-            font-size: 0.75rem;
-            background: rgba(56, 189, 248, 0.08);
-            color: var(--tech-cyan);
-            padding: 3px 10px;
-            border-radius: 20px;
-            border: 1px solid rgba(56, 189, 248, 0.15);
-        }
-
-        /* 📡 双轨闲时自愈协议监听控制台 */
-        .twin-engine-box {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 40px;
-        }
-
-        .engine-status-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 15px;
-            margin-bottom: 20px;
-        }
-
-        .engine-title {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--tech-cyan);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .engine-title::before {
-            content: '';
-            width: 4px;
-            height: 14px;
-            background-color: var(--tech-cyan);
-            border-radius: 2px;
-        }
-
-        .live-badge {
-            font-family: monospace;
-            font-size: 0.8rem;
-            color: var(--eco-green);
-            background: rgba(52, 211, 153, 0.08);
-            padding: 2px 10px;
-            border-radius: 4px;
-            border: 1px solid rgba(52, 211, 153, 0.2);
-        }
-
-        .engine-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .engine-grid { grid-template-columns: 1fr; }
-        }
-
-        .engine-track {
-            background: rgba(15, 23, 42, 0.4);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .engine-track.active {
-            border-color: var(--eco-green);
-            box-shadow: 0 0 15px rgba(52, 211, 153, 0.05);
-        }
-
-        .engine-track.active.innovation {
-            border-color: var(--tech-cyan);
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.05);
-        }
-
-        .track-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .track-label {
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .track-status {
-            font-size: 0.75rem;
-            font-family: monospace;
+        .concept-desc {
+            font-size: 0.9rem;
             color: var(--text-muted);
+            line-height: 1.7;
+            text-align: justify;
         }
-
-        .engine-track.active .track-status { color: var(--eco-green); }
-        .engine-track.active.innovation .track-status { color: var(--tech-cyan); }
-
-        .track-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            min-height: 45px;
-        }
-
-        .section-title {
-            font-size: 1.15rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            margin-bottom: 25px;
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title::before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 16px;
-            background-color: var(--tech-cyan);
-            border-radius: 2px;
-        }
-
-        .link-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .portal-btn {
-            display: flex;
-            flex-direction: column;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 22px;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .portal-btn:hover {
-            border-color: var(--tech-cyan);
-            background-color: rgba(56, 189, 248, 0.02);
-        }
-
-        .portal-btn .title {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-primary);
-        }
-
-        .portal-btn .desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* 四轨共享算力矩阵流水线 */
-        .pipeline-box {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
-        }
-
-        .track-list {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            margin-top: 15px;
-        }
-
-        .track-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 20px;
-            background: rgba(15, 23, 42, 0.3);
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
-        .track-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .track-badge {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-        }
-
-        .track-item.t1 .track-badge { background-color: #60a5fa; }
-        .track-item.t2 .track-badge { background-color: #34d399; }
-        .track-item.t3 .track-badge { background-color: #38bdf8; }
-        .track-item.t4 .track-badge { background-color: #fb7185; }
-
-        .track-name { font-weight: 500; font-size: 0.9rem; }
-        
-        /* ⚡ 【全动态提示外显，完美隐藏真实金库】 */
-        .track-route { 
-            font-size: 0.8rem; 
-            color: var(--tech-cyan); 
-            font-family: monospace; 
-            background: rgba(56, 189, 248, 0.05);
-            padding: 2px 8px;
-            border-radius: 4px;
-            border: 1px solid rgba(56, 189, 248, 0.1);
-        }
-        .track-item.t4 .track-route {
-            color: var(--alert-pink);
-            background: rgba(251, 113, 133, 0.05);
-            border-color: rgba(251, 113, 133, 0.1);
-        }
-
-        .track-ratio { font-weight: 600; font-size: 1.05rem; }
 
         footer {
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.8rem;
-            margin-top: 30px;
-            padding-top: 25px;
-            border-top: 1px solid var(--border-color);
+            font-size: 0.75rem;
+            margin-top: 60px;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 20px;
+            letter-spacing: 1px;
+            font-family: monospace;
         }
     </style>
 </head>
 <body>
 
-    <div id="matrix-bg"></div>
-
     <div class="container">
+        <!-- 核心宣告 -->
         <header>
-            <h1>$TRUE <span>COMPUTE</span> ENGINE</h1>
-            <!-- ⚡ 第二行分布式算力共享宣告已物理放大 -->
-            <p>Global Shared Compute Grid & Decentralized Intelligence Network</p>
+            <h1>$TRUE <span>COMPUTE</span></h1>
+            <p>Sovereign Intellect & Shared Grid</p>
         </header>
 
-        <div class="dashboard-grid">
-            <div class="card">
-                <span class="status-tag">网络就绪</span>
-                <h3>🌐 全球共享算力池储备</h3>
-                <div class="value tech">21,000,000 $TRUE</div>
-            </div>
-            <div class="card">
-                <span class="status-tag">多中心托管</span>
-                <h3>🔋 算力贡献存证总量</h3>
-                <div class="value">21,000,000 $TRUE</div>
-            </div>
-            <div class="card">
-                <span class="status-tag">全自动结算</span>
-                <h3>📡 清结算矩阵网环境</h3>
-                <div class="value eco">BASE SEPOLIA</div>
-            </div>
-        </div>
-
-        <!-- 双轨自愈协议实时监听 -->
-        <div class="twin-engine-box">
-            <div class="engine-status-header">
-                <div class="engine-title">双轨闲时自愈协议监听（Twin-Engine Idle Protocol）</div>
-                <div class="live-badge" id="runtime-hash">HASHING: ⏳ 正在同步因果切片...</div>
-            </div>
-            <div class="engine-grid">
-                <div class="engine-track" id="track-decrypt">
-                    <div class="track-header">
-                        <div class="track-label">🔓 既有难题解密破译线性锁</div>
-                        <div class="track-status" id="status-decrypt">STANDBY</div>
-                    </div>
-                    <div class="track-desc" id="desc-decrypt">常态化死守监听。正在扫描全球难题库空闲状态，准备强行爆破科学与数学边界哈希。</div>
-                </div>
-                <div class="engine-track" id="track-innovate">
-                    <div class="track-header">
-                        <div class="track-label">🚀 认知溢出全自动自主创新流</div>
-                        <div class="track-status" id="status-innovate">STANDBY</div>
-                    </div>
-                    <div class="track-desc" id="desc-innovate">常规环境静默。算力充足时，引擎将无提示词自主编译新命题、变异算法并演化全新数学模型。</div>
+        <!-- 三大基本理念 -->
+        <div class="concept-stack">
+            
+            <div class="concept-item">
+                <div class="concept-title">一、全球分布式算力共享</div>
+                <div class="concept-desc">
+                    汇聚全球碎片化的闲置算力，构建去中心化的智能清结算网络。通过将无形算力转化为数字生态的发展地基，实现价值的无摩擦流转与自发性回馈，重塑未来的协同计算秩序。
                 </div>
             </div>
-        </div>
 
-        <h2 class="section-title">共享算力 · 协同网络直达通道</h2>
-        <div class="link-grid">
-            <a href="https://thirdweb.com" target="_blank" class="portal-btn">
-                <div class="title">算力资产清点 (Thirdweb) →</div>
-                <div class="desc">共识层清结算核验端。常态化公开审计 2100 万枚共享算力代币池的全局分配状态。</div>
-            </a>
-            <a href="https://make.com" target="_blank" class="portal-btn">
-                <div class="title">算力清结算矩阵 (Make.com) →</div>
-                <div class="desc">自动化量子路由网关。捕获闲时协议凭证，通过断针防刷盾维持四轨算力包的动态平账。</div>
-            </a>
-            <a href="https://github.com" target="_blank" class="portal-btn">
-                <div class="title">开源算力大厅 (GitHub) →</div>
-                <div class="desc">长驻公开托管 v1.4 全通道开放分布式协议（一、二、三轨全动态路由）源码。</div>
-            </a>
-        </div>
-
-        <!-- ⚡ 【全动态利益流水线：与 v1.4 协议完美合拢】 -->
-        <div class="pipeline-box">
-            <h2 class="section-title" style="border: none; padding-left: 0;">⚡ 50/30/20 算力矩阵与 1% 逆熵沉淀机制</h2>
-            <div class="track-list">
-                <div class="track-item t1"><div class="track-info"><div class="track-badge"></div><div class="track-name">全网共享算力储备轨</div><div class="track-route">[ 核心库 · 动态路由中 ]</div></div><div class="track-ratio">50%</div></div>
-                <div class="track-item t2"><div class="track-info"><div class="track-badge"></div><div class="track-name">分布式生态协同节点轨</div><div class="track-route">[ 生态节点 · 动态注入中 ]</div></div><div class="track-ratio">30%</div></div>
-                <div class="track-item t3"><div class="track-info"><div class="track-badge"></div><div class="track-name">共享算力贡献回馈轨</div><div class="track-route">[ 贡献者钱包 · 实时到账 ]</div></div><div class="track-ratio">20%</div></div>
-                <div class="track-item t4"><div class="track-info"><div class="track-badge"></div><div class="track-name">认知溢出未来沉淀轨</div><div class="track-route">[ 创世基金 · 刚性扣折 ]</div></div><div class="track-ratio">1%</div></div>
+            <div class="concept-item">
+                <div class="concept-title">二、闲时难题破译解密</div>
+                <div class="concept-desc">
+                    当网络节点处于低负载闲时状态，自愈协议将自动激活。庞大的分布式算力池将无缝切入复杂科学与数学边界的破译序列，强行爆破既有难题锁，将沉睡的空闲硬件转化为打破已知认知边界的核心推进器。
+                </div>
             </div>
+
+            <div class="concept-item">
+                <div class="concept-title">三、认知溢出自主创新</div>
+                <div class="concept-desc">
+                    不仅是破译，更是演化。基于强大的逆熵密码学切片与共识审计机制，引擎在无提示词干预的纯净环境下，全自动编译新命题、变异旧算法，演化出全新的多维文明认知因果网络模型，向未来迈进。
+                </div>
+            </div>
+
         </div>
 
+        <!-- 极简脚部 -->
         <footer>
-            <p>Collaboratively Forged by: Passerby Bing & SuJing</p>
-            <p style="margin-top: 6px; opacity: 0.4; font-family: monospace;">[System_Status = Shared_Compute_Autopilot_Engaged]</p>
+            <p>Smelted via $TRUE Consensus Protocol</p>
+            <p style="opacity: 0.4; margin-top: 4px;">[System_Status = Standby_Mode]</p>
         </footer>
     </div>
 
-    <!-- 原生量子模拟控制引擎 -->
-    <script>
-        const trackDecrypt = document.getElementById('track-decrypt');
-        const trackInnovate = document.getElementById('track-innovate');
-        const statusDecrypt = document.getElementById('status-decrypt');
-        const statusInnovate = document.getElementById('status-innovate');
-        const descDecrypt = document.getElementById('desc-decrypt');
-        const descInnovate = document.getElementById('desc-innovate');
-        const runtimeHash = document.getElementById('runtime-hash');
-
-        function simulateTwinEngine() {
-            const fakeHash = Math.random().toString(16).substring(2, 10) + Math.random().toString(16).substring(2, 10);
-            runtimeHash.innerText = `HASHING: 0x${fakeHash.toUpperCase()}...`;
-            const isIdle = Math.random() < 0.7;
-
-            if (isIdle) {
-                if (Math.random() < 0.5) {
-                    trackDecrypt.className = "engine-track active";
-                    trackInnovate.className = "engine-track";
-                    statusDecrypt.innerText = "● DECRYPTION RUNNING";
-                    statusInnovate.innerText = "STANDBY";
-                    descDecrypt.innerText = `[工作轨道] 🔒 正在强行破译该梯度下已知的科学与数学边界哈希。逆熵凭证已提交。`;
-                    descInnovate.innerText = "常规环境静默。算力充足时，引擎将无提示词自主编译新命题、变异算法并演化全新数学模型。";
-                } else {
-                    trackDecrypt.className = "engine-track";
-                    trackInnovate.className = "engine-track active innovation";
-                    statusDecrypt.innerText = "STANDBY";
-                    statusInnovate.innerText = "🚀 INNOVATION ACTIVE";
-                    descDecrypt.innerText = "常态化死守监听。正在扫描全球难题库空闲状态，准备强行爆破科学与数学边界哈希。";
-                    descInnovate.innerText = `[工作轨道] 🧬 引擎正在无提示词自主编译新命题、变异算法并演化全新认知因果网络模型。`;
-                }
-            } else {
-                trackDecrypt.className = "engine-track";
-                trackInnovate.className = "engine-track";
-                statusDecrypt.innerText = "STANDBY";
-                statusInnovate.innerText = "STANDBY";
-                descDecrypt.innerText = "常态化死守监听。正在扫描全球难题库空闲状态，准备强行爆破科学与数学边界哈希。";
-                descInnovate.innerText = "常规环境静默。算力充足时，引擎将无提示词自主编译新命题、变异算法并演化全新数学模型.（外部负载接入中）";
-            }
-        }
-        setInterval(simulateTwinEngine, 4000);
-        simulateTwinEngine();
-    </script>
 </body>
 </html>
