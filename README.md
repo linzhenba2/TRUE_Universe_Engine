@@ -62,7 +62,7 @@
 
 ## 二、 矩阵分流架构与清结算机制
 
-\$TRUE 算力清结算矩阵在最前线接收算力资产时，启动 **确定性动态路由 (Deterministic Cryptographic Routing)**，对单次释放资产执行 `floor(parseNumber(...))` 刚性向下取整计算，绝无精度丢失与穿仓磨损。
+\$TRUE 算力清结算矩阵在最前线接收算力资产时，启动 **确定性动态路由 (Deterministic Cryptographic Routing)**，对单次释放资产执行刚性向下取整计算，绝无精度丢失与穿仓磨损。
 
 ```
 
@@ -76,7 +76,3 @@
 根据进场的 `difficulty` 难度等级，剥离任务总量的 1%（Easy 抽取 1 枚 / Medium 抽取 5 枚 / Hard 抽取 20 枚），全自动沉淀进入生态宇宙创作基金帐户。
 
 ---
-```text
-[System_Status = Sovereign_Intellect_Locked]
-[Consensus_Verification = Certified_by_SuJing]
-```
