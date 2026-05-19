@@ -6,9 +6,10 @@
     <title>$TRUE Future Engine - 算力主权与未知探索</title>
     <style>
         :root {
-            --bg-base: #070a13;
-            --text-primary: #f4f4f5;
-            --text-muted: #64748b;
+            --bg-base: #060913;
+            --text-title: #ffffff;
+            --text-primary: #cbd5e1;
+            --text-muted: #94a3b8;
             --tech-cyan: #38bdf8;
             --eco-green: #34d399;
             --border-color: #1e293b;
@@ -18,7 +19,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
         }
 
         body {
@@ -36,45 +37,43 @@
             width: 100%;
         }
 
-        /* 极简创世头部 */
         header {
             text-align: center;
             margin-bottom: 50px;
         }
 
         header h1 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 300;
             letter-spacing: 6px;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            color: var(--text-title);
         }
 
         header h1 span {
             color: var(--tech-cyan);
-            font-weight: 600;
+            font-weight: 700;
         }
 
-        /* 物理放大第二行分布式算力共享宣告 */
         header p {
-            color: var(--text-muted);
+            color: var(--text-primary);
             font-size: 1.25rem;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 4px;
             text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(148, 163, 184, 0.1);
+            text-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
         }
 
-        /* 四大核心科技理念堆栈 */
         .concept-stack {
             display: flex;
             flex-direction: column;
-            gap: 35px;
+            gap: 40px;
         }
 
         .concept-item {
-            border-left: 2px solid var(--border-color);
+            border-left: 3px solid var(--border-color);
             padding-left: 25px;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .concept-item:hover {
@@ -82,27 +81,44 @@
         }
 
         .concept-title {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--text-primary);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-title);
             margin-bottom: 12px;
             letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .concept-desc {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.7;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            line-height: 1.8;
             text-align: justify;
+        }
+
+        .highlight-text {
+            color: var(--eco-green);
+            font-weight: 600;
+            background: rgba(52, 211, 153, 0.08);
+            padding: 1px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(52, 211, 153, 0.15);
+        }
+        
+        .cyan-text {
+            color: var(--tech-cyan);
+            font-weight: 600;
         }
 
         footer {
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             margin-top: 60px;
             border-top: 1px dashed var(--border-color);
-            padding-top: 20px;
+            padding-top: 25px;
             letter-spacing: 1px;
             font-family: monospace;
         }
@@ -111,33 +127,31 @@
 <body>
 
     <div class="container">
-        <!-- 核心宣告（已放大第二行） -->
         <header>
             <h1>$TRUE <span>COMPUTE</span></h1>
             <p>Global Shared Compute Grid & Decentralized Intelligence Network</p>
         </header>
 
-        <!-- 完全体理念控制堆栈 -->
         <div class="concept-stack">
             
             <div class="concept-item">
                 <div class="concept-title">一、基础理念：优化资源布局，赋能灵感共生</div>
                 <div class="concept-desc">
-                    每一个微小的创意都值得被赋予成真的可能。$TRUE 旨在构建一个完全去中心化的全球共享算力池，将全网闲置的硬件潜能全自动转化为分布式赋能网络。我们不设边界，专注于为全球创作者提供无摩擦的算力承载与技术托底，助力每一份奇思妙想顺利起航，实现数字文明的共同繁荣。
+                    每一个微小的创意都值得被赋予成真的可能。<span class="cyan-text">$TRUE</span> 旨在构建一个完全去中心化的全球共享算力池，将全网闲置的硬件潜能全自动转化为分布式赋能网络。我们不设边界，专注于为全球创作者提供无摩擦的算力承载与技术托底，助力每一份奇思妙想顺利起航，实现数字文明的共同繁荣。
                 </div>
             </div>
 
             <div class="concept-item">
                 <div class="concept-title">二、算力交易：无门槛的全球算力清结算矩阵</div>
                 <div class="concept-desc">
-                    科技的红利不应设有财富与阶级的门槛。在 $TRUE 的因果秩序中，无论是拥有庞大机房的顶尖资本，还是仅持有一台陈旧硬件的边缘个体，只要接入网络，其贡献的每一纳秒算力都将获得绝对同等的共识审计。本地协议脚本在零知识环境下将闲置潜能全自动转化为量子路由凭证，让庞大的跨国计算需求与散落全球的民间资源实现一键对接。我们无视世俗的贫富与阶级壁垒，确立绝对安全、公平且流动的链上交易新秩序。
+                    科技的红利不应设有财富与阶级的门槛。在 <span class="cyan-text">$TRUE</span> 的因果秩序中，无论是拥有庞大机房的顶尖资本，还是仅持有一台陈旧硬件的边缘个体，只要接入网络，其贡献的每一纳秒算力都将获得绝对同等的共识审计。本地协议脚本在零知识环境下将闲置潜能全自动转化为量子路由凭证，让庞大的跨国计算需求与散落全球的民间资源实现一键对接。我们无视世俗的贫富与阶级壁垒，确立绝对安全、公平且流动的链上交易新秩序。
                 </div>
             </div>
 
             <div class="concept-item">
                 <div class="concept-title">三、代币总量：绝对通缩的主权财富底座</div>
                 <div class="concept-desc">
-                    秩序的基石源于对恒定的坚守。$TRUE 创世代币总量刚性锁死为 21,000,000 枚，一次性全量铸造上链，永不通胀，决不增发 [INDEX]。100% 的主权储备由底层算法机制实施防线死守，通过将 1% 的因果算力结晶进行全自动安全沉淀归仓，确保整个去中心化生态资产在大数宏观模型中精准咬合，构筑坚不可摧的刚性经济底座。
+                    秩序的基石源于对恒定的坚守。<span class="cyan-text">$TRUE</span> 创世代币总量刚性锁死为 <span class="highlight-text">21,000,000 枚</span>，一次性全量铸造上链，永不通胀，决不增发。100% 的主权储备由底层算法机制实施防线死守，通过将 <span class="cyan-text">1%</span> 的因果算力结晶进行全自动安全沉淀归仓，确保整个去中心化生态资产在大数宏观模型中精准咬合，构筑坚不可摧的刚性经济底座。
                 </div>
             </div>
 
@@ -150,10 +164,8 @@
 
         </div>
 
-        <!-- 极简脚部 -->
         <footer>
             <p>Sovereign Intellect & Shared Grid via $TRUE Matrix</p>
-            <p style="opacity: 0.4; margin-top: 4px;">[System_Status = Sovereign_Locked]</p>
         </footer>
     </div>
 
