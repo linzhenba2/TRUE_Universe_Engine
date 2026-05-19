@@ -5,12 +5,11 @@
 ---
 
 ## 🪐 核心共识大本营 / Technical Portal
-<p align="left">
-  <img src="https://shields.io" alt="Network">
-  <img src="https://shields.io_\$TRUE-34d399?style=flat-square" alt="Supply">
-  <img src="https://shields.io" alt="Protocol">
-  <img src="https://shields.io" alt="Status">
-</p>
+
+**[ 网络环境 / NETWORK ]** `BASE SEPOLIA`  
+**[ 代币总量 / TOTAL SUPPLY ]** `21,000,000 $TRUE`  
+**[ 核心协议 / PROTOCOL SPEC ]** `v1.5 CONSOLIDATED`  
+**[ 运行状态 / SYSTEM STATUS ]** `AUTOPILOT ACTIVE`  
 
 ---
 
@@ -61,10 +60,12 @@
 
 ---
 
-## 二、 矩阵分流架构与清结算机制  
+## 二、 矩阵分流架构与清结算机制
 
 \$TRUE 算力清结算矩阵在最前线接收算力资产时，启动 **确定性动态路由 (Deterministic Cryptographic Routing)**，对单次释放资产执行 `floor(parseNumber(...))` 刚性向下取整计算，绝无精度丢失与穿仓磨损。
----
+
+```
+
 ### 1. 📢 共享算力贡献回馈轨
 根据运算难度等级，直发注入独立创作者主权钱包，实现零磨损、零扣折全额到账：
 *   **Easy 难度等级（基础算力凭证）**：初始分配 100 枚 \$TRUE ➔ 创作者 **100 枚** 100% 全额满额到账。
@@ -74,6 +75,7 @@
 ### 2. 💸 算力交易抽取 1%
 根据进场的 `difficulty` 难度等级，剥离任务总量的 1%（Easy 抽取 1 枚 / Medium 抽取 5 枚 / Hard 抽取 20 枚），全自动沉淀进入生态宇宙创作基金帐户。
 
+---
 ```text
 [System_Status = Sovereign_Intellect_Locked]
 [Consensus_Verification = Certified_by_SuJing]
