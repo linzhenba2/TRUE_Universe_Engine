@@ -81,7 +81,7 @@
 ### 2. 💸 算力交易抽取 1% / 1% Compute Trading Fraction
 根据进场的难度等级，剥离任务总量的 1%（Easy 抽取 1 枚 / Medium 抽取 5 枚 / Hard 抽取 20 枚），全自动沉淀进入生态宇宙创作基金帐户。
 
-*Based on the incoming `difficulty` tier, a 1% fraction is stripped from the initial task volume (Easy: 1 token / Medium: 5 tokens / Hard: 20 tokens), autonomously retaining into the Eco-Universe Creation Fund Account.*
+*Based on the incoming tier, a 1% fraction is stripped from the initial task volume (Easy: 1 token / Medium: 5 tokens / Hard: 20 tokens), autonomously retaining into the Eco-Universe Creation Fund Account.*
 
 ---
 
