@@ -1,92 +1,343 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🪞 TRUE Universe Engine - Web Distributed Node</title>
-    <script src="https://jsdelivr.net"></script>
+    <title>$TRUE Universe Engine - 创世算力清结算矩阵</title>
+    <style>
+        :root {
+            --bg-base: #0a0a0c;
+            --bg-card: #121216;
+            --text-primary: #e4e4e7;
+            --text-muted: #71717a;
+            --gold-core: #d4af37;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --green-glow: #10b981;
+            --border-color: #27272a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* 星空背景特效 */
+        #matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #16161d 0%, #0a0a0c 100%);
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 头部主权宣告 */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--gold-core);
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* 宏观底账快报看板 */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--gold-core);
+            box-shadow: 0 0 15px var(--gold-glow);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card .value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-primary);
+        }
+
+        .card .value.gold {
+            color: var(--gold-core);
+        }
+
+        .card .status-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 0.75rem;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--green-glow);
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        /* 物理阵地传送门大厅 */
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--gold-core);
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            border-left: 3px solid var(--gold-core);
+            padding-left: 15px;
+        }
+
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .portal-btn {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .portal-btn:hover {
+            background: linear-gradient(135deg, #121216 0%, #1e1a10 100%);
+            border-color: var(--gold-core);
+        }
+
+        .portal-btn .title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .portal-btn:hover .title {
+            color: var(--gold-core);
+        }
+
+        .portal-btn .desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* 四轨永动机拓扑流水线 */
+        .pipeline-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 35px;
+            margin-bottom: 40px;
+        }
+
+        .track-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .track-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 6px;
+            border-left: 4px solid var(--border-color);
+        }
+
+        .track-item.t1 { border-left-color: #ef4444; }
+        .track-item.t2 { border-left-color: #eab308; }
+        .track-item.t3 { border-left-color: #3b82f6; }
+        .track-item.t4 { border-left-color: var(--gold-core); }
+
+        .track-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .track-badge {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .track-name {
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .track-route {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+
+        .track-ratio {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-top: 8px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            letter-spacing: 1px;
+        }
+    </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-mono min-h-screen flex flex-col items-center justify-center p-4">
-    <div id="node-panel" class="w-full max-w-xl bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-2xl transition-all duration-300">
-        <div class="border-b border-slate-800 pb-4 mb-6">
-            <h1 class="text-xl md:text-2xl font-black text-emerald-400 tracking-wider">🪞 TRUE UNIVERSE DISTRIBUTED NODE v1.6</h1>
-            <p class="text-xs text-slate-400 mt-1">[Web Engine Platform - Permanent Gateway V3 Alignment]</p>
-        </div>
-        <div class="space-y-4">
-            <div>
-                <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">[🔒 Master Identity Coordinates]</label>
-                <input type="text" id="wallet-input" placeholder="Enter your Web3 wallet address (0x...)" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 text-emerald-300 font-mono">
+<body>
+
+    <div id="matrix-bg"></div>
+
+    <div class="container">
+        <!-- 头部主权宣告 -->
+        <header>
+            <h1>$TRUE UNIVERSE ENGINE</h1>
+            <p>Genesis Sovereign Layout & Quantum Settlement Matrix</p>
+        </header>
+
+        <!-- 资产清点看版 -->
+        <div class="dashboard-grid">
+            <div class="card">
+                <span class="status-tag">已锁定</span>
+                <h3>🪐 创世资产总量</h3>
+                <div class="value gold">21,000,000 $TRUE</div>
             </div>
-            <div class="pt-2">
-                <button id="trigger-btn" onclick="toggleMiningEngine()" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black tracking-widest uppercase py-4 rounded-lg text-sm transition-all shadow-lg">Ignite Hashing Matrix / 开启网路算力</button>
+            <div class="card">
+                <span class="status-tag">100% 垄断</span>
+                <h3>👑 庄家控制储备</h3>
+                <div class="value">21,000,000 $TRUE</div>
+            </div>
+            <div class="card">
+                <span class="status-tag">高频同步</span>
+                <h3>📡 网络并网状态</h3>
+                <div class="value" style="color: var(--green-glow);">BASE SEPOLIA</div>
             </div>
         </div>
-        <div class="mt-8 border-t border-slate-800 pt-6 space-y-3 text-xs text-slate-400">
-            <div class="flex justify-between border-b border-slate-850 pb-2"><span>[🛰️ ENGINE STATUS]</span><span id="engine-status" class="text-rose-500 font-bold">OFFLINE</span></div>
-            <div class="flex justify-between border-b border-slate-850 pb-2"><span>[⚙️ COMPUTING CYCLE]</span><span id="cycle-display" class="text-slate-300 font-bold">0</span></div>
-            <div class="flex justify-between border-b border-slate-850 pb-2"><span>[⏱️ INSTANT NONCE]</span><span id="nonce-display" class="text-slate-300 font-bold">0</span></div>
-            <div class="flex justify-between"><span>[💸 PIPELINE LEDGER]</span><span id="ledger-status" class="text-slate-500">STANDBY</span></div>
+
+        <!-- 物理阵地传送门大厅 -->
+        <h2 class="section-title">🪐 创世三弹 · 物理阵地直达通道</h2>
+        <div class="link-grid">
+            <a href="https://thirdweb.com" target="_blank" class="portal-btn">
+                <div class="title">资产清点大厅 (Thirdweb) ➔</div>
+                <div class="desc">合约地址对齐 0x2186...96F9，核验 2100 万枚主权财富底座。</div>
+            </a>
+            <a href="https://make.com" target="_blank" class="portal-btn">
+                <div class="title">量子永动监控 (Make.com) ➔</div>
+                <div class="desc">专属欧区新网关 toi32jwx，常态化死守监听四轨量子分流。</div>
+            </a>
+            <a href="https://github.com" target="_blank" class="portal-btn">
+                <div class="title">开源算力大厅 (GitHub) ➔</div>
+                <div class="desc">长驻托管 v1.3 核心解密与创新双轨协议源码及双语白皮书。</div>
+            </a>
         </div>
-        <div class="mt-6">
-            <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">[📺 Live Stream Log]</label>
-            <div id="console-logger" class="w-full h-32 bg-slate-950 border border-slate-850 rounded-lg p-3 text-xs overflow-y-auto text-slate-400 space-y-1"></div>
+
+        <!-- 四轨分流拓扑流水线 -->
+        <div class="pipeline-box">
+            <h2 class="section-title" style="border: none; padding-left: 0;">⚡ 50/30/20 利益阵型与 1% 沉淀公税路由</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: -15px; margin-bottom: 20px;">
+                当本地凭证同步触发，清结算矩阵将自动触发刚性向下取整（Floor），解耦剥离并分流注入：
+            </p>
+            <div class="track-list">
+                <div class="track-item t1">
+                    <div class="track-info">
+                        <div class="track-name">🔴 核心库备份轨</div>
+                        <div class="track-route">➔ 归仓锁定 0x2c0aE...0828</div>
+                    </div>
+                    <div class="track-ratio">50%</div>
+                </div>
+                <div class="track-item t2">
+                    <div class="track-info">
+                        <div class="track-name">🟡 生态发展流向轨</div>
+                        <div class="track-route">➔ 归仓锁定 0x2c0aE...0828</div>
+                    </div>
+                    <div class="track-ratio">30%</div>
+                </div>
+                <div class="track-item t3">
+                    <div class="track-info">
+                        <div class="track-name">📢 社区贡献发薪轨</div>
+                        <div class="track-route">➔ 动态注入 {{miner_wallet}}</div>
+                    </div>
+                    <div class="track-ratio">20%</div>
+                </div>
+                <div class="track-item t4">
+                    <div class="track-info">
+                        <div class="track-name">👑 创世基金沉淀轨</div>
+                        <div class="track-route">➔ 强行剥离 0x2c0aE...0828</div>
+                    </div>
+                    <div class="track-ratio">1% (刚性扣折)</div>
+                </div>
+            </div>
         </div>
+
+        <!-- 底部版权与存证 -->
+        <footer>
+            <p>Jointly Smelted by: Passerby Bing & SuJing</p>
+            <p style="margin-top: 5px; opacity: 0.5;">[System_Status = Absolute_Memory_Hardlocked]</p>
+        </footer>
     </div>
 
-    <script>
-        const MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/toi32jwxpr7p1c5v2yhu3qf0fnk9l1p7";
-        let isMiningActive = false, cycleCount = 0, nonce = 0, abortController = null;
-
-        function logToTerminal(msg, type='info') {
-            const logger = document.getElementById('console-logger');
-            const colors = { info:'text-slate-400', success:'text-emerald-400 font-bold', warn:'text-amber-400 font-bold', breakthrough:'text-fuchsia-400 font-black' };
-            logger.innerHTML += `<div class="${colors[type]}">[${new Date().toLocaleTimeString()}] >> ${msg}</div>`;
-            logger.scrollTop = logger.scrollHeight;
-        }
-
-        function toggleMiningEngine() {
-            const wallet = document.getElementById('wallet-input').value.trim();
-            const btn = document.getElementById('trigger-btn');
-            const status = document.getElementById('engine-status');
-            if (!isMiningActive) {
-                if (!wallet.startsWith("0x") || wallet.length !== 42) return alert("Wallet format error!");
-                isMiningActive = true; abortController = new AbortController();
-                status.innerText = "ONLINE (ACTIVE)"; status.className = "text-emerald-400 font-bold";
-                btn.innerText = "Terminate Engine / 断开算力节点"; btn.className = "w-full bg-rose-500 text-slate-950 font-black tracking-widest uppercase py-4 rounded-lg text-sm shadow-lg";
-                logToTerminal(`IDENTITY VERIFIED: Yield destination locked to ${wallet}`, "success");
-                executeMiningLoop(wallet);
-            } else {
-                isMiningActive = false; if (abortController) abortController.abort();
-                status.innerText = "OFFLINE"; status.className = "text-rose-500 font-bold";
-                btn.innerText = "Ignite Hashing Matrix / 开启网路算力"; btn.className = "w-full bg-emerald-500 text-slate-950 font-black tracking-widest uppercase py-4 rounded-lg text-sm shadow-lg";
-                logToTerminal("TERMINATED: Cloud node safely disconnected.", "warn");
-            }
-        }
-
-        async function executeMiningLoop(wallet) {
-            const cycleDisp = document.getElementById('cycle-display'), nonceDisp = document.getElementById('nonce-display'), ledger = document.getElementById('ledger-status');
-            while (isMiningActive) {
-                cycleCount++; cycleDisp.innerText = cycleCount;
-                logToTerminal(`COMPUTING: Cycle #${cycleCount} packing data...`, "info");
-                nonce = 0;
-                let isIdle = Math.random() < 0.7, assignedTrack = isIdle ? (Math.random() < 0.5 ? "DECRYPTION" : "INNOVATION") : "NORMAL";
-                let difficulty = isIdle ? (Math.random() < 0.05 ? "hard" : (Math.random() < 0.25 ? "medium" : "easy")) : "easy";
-                let taskId = isIdle ? (assignedTrack === "DECRYPTION" ? `IDLE-DECRYPT-${difficulty.toUpperCase()}-101` : `IDLE-INNOVATION-${difficulty.toUpperCase()}-777`) : `EXTERNAL-BOUNTY-999`;
-
-                if (isIdle) logToTerminal(`[闲时协议] 激活双轨爆破: ${assignedTrack} [${difficulty.toUpperCase()}]`, "breakthrough");
-
-                while (isMiningActive) { nonce += 5000; nonceDisp.innerText = nonce; await new Promise(r => setTimeout(r, 10)); break; }
-                if (!isMiningActive) break;
-
-                const payload = { miner_wallet: wallet, difficulty, source_platform: "TRUE-Universe-Twin-Idle", external_task_id: taskId, signed_tx: `0x_true_web_proof_${Math.random().toString(16).substring(2,10)}`, idle_protocol_context: { is_idle: isIdle, assigned_track: assignedTrack, decryption_locked: (assignedTrack === "DECRYPTION"), innovation_active: (assignedTrack === "INNOVATION") } };
-                try {
-                    ledger.innerText = "PUMPING..."; ledger.className = "text-amber-400 font-bold";
-                    const res = await fetch(MAKE_WEBHOOK_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload), signal: abortController.signal });
-                    if (res.ok) { logToTerminal(`SETTLEMENT SUCCESS: Injected via permanent gateway V3.`, "success"); ledger.innerText = "MINTED"; ledger.className = "text-emerald-400 font-bold"; }
-                } catch (err) { ledger.innerText = "CACHE_ENGAGED"; ledger.className = "text-slate-500"; }
-                await new Promise(r => setTimeout(r, 5000));
-            }
-        }
-    </script>
 </body>
 </html>
