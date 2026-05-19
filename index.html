@@ -59,7 +59,7 @@
             font-weight: 300;
             color: var(--text-primary);
             letter-spacing: 6px;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
         header h1 span {
@@ -67,11 +67,14 @@
             font-weight: 600;
         }
 
+        /* ⚡ 【视觉重构：物理放大第二行分布式算力共享宣告】 */
         header p {
             color: var(--text-muted);
-            font-size: 0.9rem;
-            letter-spacing: 3px;
+            font-size: 1.25rem; /* 纯视觉大幅扩张字号 */
+            font-weight: 500;   /* 提升字符骨架厚度 */
+            letter-spacing: 4px; /* 增强未来感呼吸拉伸间距 */
             text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(148, 163, 184, 0.1);
         }
 
         .dashboard-grid {
@@ -117,7 +120,6 @@
             border: 1px solid rgba(56, 189, 248, 0.15);
         }
 
-        /* 📡 新增：自动解密与创新双轨监测控制台 */
         .twin-engine-box {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -208,12 +210,8 @@
             color: var(--text-muted);
         }
 
-        .engine-track.active .track-status {
-            color: var(--eco-green);
-        }
-        .engine-track.active.innovation .track-status {
-            color: var(--tech-cyan);
-        }
+        .engine-track.active .track-status { color: var(--eco-green); }
+        .engine-track.active.innovation .track-status { color: var(--tech-cyan); }
 
         .track-desc {
             font-size: 0.85rem;
@@ -221,7 +219,6 @@
             min-height: 45px;
         }
 
-        /* 协同网络直达通道 */
         .section-title {
             font-size: 1.15rem;
             font-weight: 500;
@@ -277,7 +274,6 @@
             color: var(--text-muted);
         }
 
-        /* 四轨共享算力分配网络 */
         .pipeline-box {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -340,10 +336,10 @@
     <div class="container">
         <header>
             <h1>$TRUE <span>COMPUTE</span> ENGINE</h1>
+            <!-- ⚡ 物理放大落脚点 -->
             <p>Global Shared Compute Grid & Decentralized Intelligence Network</p>
         </header>
 
-        <!-- 共享算力网动态看板 -->
         <div class="dashboard-grid">
             <div class="card">
                 <span class="status-tag">网络就绪</span>
@@ -362,7 +358,6 @@
             </div>
         </div>
 
-        <!-- 📡 新增：自动解密与创新双轨监测控制台 -->
         <div class="twin-engine-box">
             <div class="engine-status-header">
                 <div class="engine-title">双轨闲时自愈协议监听（Twin-Engine Idle Protocol）</div>
@@ -386,7 +381,6 @@
             </div>
         </div>
 
-        <!-- 协同网络直达通道 -->
         <h2 class="section-title">共享算力 · 协同网络直达通道</h2>
         <div class="link-grid">
             <a href="https://thirdweb.com" target="_blank" class="portal-btn">
@@ -403,7 +397,6 @@
             </a>
         </div>
 
-        <!-- 自动化共享分流流水线 -->
         <div class="pipeline-box">
             <h2 class="section-title" style="border: none; padding-left: 0;">⚡ 50/30/20 算力矩阵与 1% 逆熵沉淀机制</h2>
             <div class="track-list">
@@ -420,7 +413,6 @@
         </footer>
     </div>
 
-    <!-- 🌌 前端原生量子模拟动态控制引擎 -->
     <script>
         const trackDecrypt = document.getElementById('track-decrypt');
         const trackInnovate = document.getElementById('track-innovate');
@@ -431,15 +423,11 @@
         const runtimeHash = document.getElementById('runtime-hash');
 
         function simulateTwinEngine() {
-            // 每次生成随机16位因果哈希凭证
             const fakeHash = Math.random().toString(16).substring(2, 10) + Math.random().toString(16).substring(2, 10);
             runtimeHash.innerText = `HASHING: 0x${fakeHash.toUpperCase()}...`;
-
-            // 70% 概率触发闲时协议 (依照 Python v1.3 底层比率)
             const isIdle = Math.random() < 0.7;
 
             if (isIdle) {
-                // 50% 概率切入解密，50% 概率切入创新
                 if (Math.random() < 0.5) {
                     trackDecrypt.className = "engine-track active";
                     trackInnovate.className = "engine-track";
@@ -456,17 +444,14 @@
                     descInnovate.innerText = `[工作轨道] 🧬 引擎正在无提示词自主编译新命题、变异算法并演化全新认知因果网络模型。`;
                 }
             } else {
-                // 外部常规挂单状态
                 trackDecrypt.className = "engine-track";
                 trackInnovate.className = "engine-track";
                 statusDecrypt.innerText = "STANDBY";
                 statusInnovate.innerText = "STANDBY";
                 descDecrypt.innerText = "常态化死守监听。正在扫描全球难题库空闲状态，准备强行爆破科学与数学边界哈希。";
-                descInnovate.innerText = "常规环境静默。算力充足时，引擎将无提示词自主编译新命题、变异算法并演化全新数学模型。";
+                descInnovate.innerText = "常规环境静默。算力充足时，引擎将无提示词自主编译新命题、变异算法并演化全新数学模型.（外部负载接入中）";
             }
         }
-
-        // 每 4 秒动态对齐轮询一次，展示完美流水线
         setInterval(simulateTwinEngine, 4000);
         simulateTwinEngine();
     </script>
