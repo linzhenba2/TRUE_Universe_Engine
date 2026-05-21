@@ -5,77 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TRUE Universe Automated System</title>
     <style>
-        :root {
-            --bg-color: #050505;
-            --card-bg: #0d0d0d;
-            --border-color: #1a1a1a;
-            --text-main: #e5e5e5;
-            --text-sub: #888888;
-            --cyan-glow: #00f3ff;
-            --highlight: #ffffff;
-        }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-        }
-        .container {
-            max-width: 800px;
-            width: 100%;
-        }
-        .header {
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
-            margin-bottom: 40px;
-        }
-        .main-title {
-            font-size: 24px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin: 0 0 10px 0;
-        }
-        .concept-item {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 30px;
-            margin-bottom: 24px;
-            border-radius: 4px;
-            transition: border 0.3s ease;
-        }
-        .concept-item:hover {
-            border-color: var(--cyan-glow);
-        }
-        .concept-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            line-height: 1.5;
-        }
-        .sub-title {
-            display: block;
-            font-size: 13px;
-            color: var(--text-sub);
-            font-weight: 400;
-            margin-top: 4px;
-        }
-        .concept-desc {
-            font-size: 14px;
-            color: var(--text-sub);
-            line-height: 1.8;
-            text-align: justify;
-        }
-        .cyan-text {
-            color: var(--cyan-glow);
-            font-weight: 500;
-        }
-        .highlight-text {
-            color: var(--highlight);
-            font-weight: 600;
-        }
+      :root {
+    /* 刚性调高全局对比度 */
+    --bg-color: #000000;         /* 纯黑背景，确保零光污染 */
+    --card-bg: #0a0a0d;          /* 深钛灰卡片底色 */
+    --border-color: #222226;     /* 加固边框线条色 */
+    --text-main: #ffffff;        /* 主文本强行对齐纯白 (100% 亮度) */
+    --text-sub: #b3b3b3;         /* 描述文本上调至高亮明灰，彻底看清 */
+    --cyan-glow: #00f3ff;        /* 荧光青代币专用色 */
+    --highlight: #00ff66;        /* 刚性总量高亮纯绿 */
+}
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 60px 24px;
+    display: flex;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased; /* 强制开启全文字体抗锯齿平滑 */
+}
+.container {
+    max-width: 850px;
+    width: 100%;
+}
+.header {
+    border-bottom: 2px solid var(--border-color); /* 加厚分割线 */
+    padding-bottom: 24px;
+    margin-bottom: 48px;
+}
+.main-title {
+    font-size: 28px;              /* 标题字号加大 */
+    font-weight: 700;
+    letter-spacing: 2px;          /* 拉开间距，防止字迹粘连 */
+    margin: 0;
+}
+.concept-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 36px;
+    margin-bottom: 28px;
+    border-radius: 6px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* 增加暗部阴影提升立体感 */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.concept-item:hover {
+    border-color: var(--cyan-glow);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.15); /* 悬停时微微发出镭射光晕 */
+}
+.concept-title {
+    font-size: 18px;              /* 标题加大 */
+    font-weight: 700;             /* 字重加粗 */
+    margin-bottom: 18px;
+    line-height: 1.6;
+    color: var(--text-main);
+}
+.sub-title {
+    display: block;
+    font-size: 14px;
+    color: #8a8a93;               /* 英文副标题明度调高 */
+    font-weight: 500;
+    margin-top: 6px;
+    letter-spacing: 0.5px;
+}
+.concept-desc {
+    font-size: 15px;              /* 描述正文字号由 14px 调大至 15px */
+    color: var(--text-sub);       /* 彻底告别暗沉，实现高清阅读 */
+    line-height: 1.9;             /* 增大行间距，防止视觉疲劳 */
+    text-align: justify;
+}
+.cyan-text {
+    color: var(--cyan-glow);
+    font-weight: 600;             /* 加粗高亮代币 */
+}
+.highlight-text {
+    color: var(--highlight);
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0, 255, 102, 0.2); /* 21,000,000 总量自带微发光防线 */
+}
+
     </style>
 </head>
 <body>
